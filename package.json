@@ -1,6 +1,6 @@
 {
   "name": "react-native-super-app-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -40,19 +40,19 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/4tek-group/sdk_supper_app/react-native-super-app-sdk",
+  "repository": "https://github.com/4tek-group/sdk_supper_app",
   "author": "Jayce <jayce@4tek.io> (https://github.com/4tek-group/sdk_supper_app)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/4tek-group/sdk_supper_app/react-native-super-app-sdk/issues"
+    "url": "https://github.com/4tek-group/sdk_supper_app/issues"
   },
-  "homepage": "https://github.com/4tek-group/sdk_supper_app/react-native-super-app-sdk#readme",
+  "homepage": "https://github.com/4tek-group/sdk_supper_app#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@evilmartians/lefthook": "^1.2.2",
     "@commitlint/config-conventional": "^17.0.2",
+    "@evilmartians/lefthook": "^1.2.2",
     "@react-native-community/eslint-config": "^3.0.2",
     "@release-it/conventional-changelog": "^5.0.0",
     "@types/jest": "^28.1.2",
@@ -155,5 +155,8 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "expo": "^47.0.13"
   }
 }
