@@ -8,7 +8,7 @@ import {
   TextStyle,
   TouchableOpacity, View,
   ViewStyle,
-} from 'react-native';
+} from 'react-native'
 import AppText, { AppTextProps } from './AppText'
 import Padding from './Padding'
 import { Colors } from './Colors'

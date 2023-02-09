@@ -6,3 +6,11 @@ export type PermissionType = {
 };
 
 export type PermissionOS = 'android' | 'ios';
+
+export const DevicePermissionType = {
+  photo: 'photo',
+  camera: 'camera',
+  storage: 'storage',
+  location: 'location',
+  contacts: 'contacts',
+};

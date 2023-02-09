@@ -1,5 +1,5 @@
-import AppButton from './AppButton';
-import React, { memo, useEffect } from 'react';
+import AppButton from './AppButton'
+import React, { memo, useEffect } from 'react'
 import {
   Image,
   ImageSourcePropType,
@@ -8,10 +8,10 @@ import {
   TextStyle,
   TouchableOpacity,
   View, Dimensions,
-} from 'react-native';
-import AppText from './AppText';
-import Padding from './Padding';
-import { Colors } from './Colors';
+} from 'react-native'
+import AppText from './AppText'
+import Padding from './Padding'
+import { Colors } from './Colors'
 
 interface AppDiaLogProps {
   title?: string;
