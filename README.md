@@ -24,21 +24,26 @@ Install package: yarn
 
 ```ts
 import {
-  EventType,
+  ActionID,
   UserRequest,
   UserResponse,
 } from 'react-native-super-app-sdk'
 
-handleRequestMini = async (
+handleRequestFromMiniApp = async (
+  appId: string,
   actionId: string,
   params: any extends BaseRequest,
   completion: (any extends BaseResponse) => {},
 ) => {
   switch (actionId) {
-    case EventType.user: {
-      const isAccess = checkPermissionUser(params)
+     case ActionID.initSDK: {
+      completion(initResponse(appId))
+      break
+    }
+    case ActionID.getUserInfo: {
+      const isAccess = checkPermissionUser(appId, params)
       if (isAccess) {
-        completion(handleRequestUser(params))
+        completion(handleRequestUser(appId, params))
       } else {
         completion(errorUserRequest('user deny'))
       }
@@ -51,14 +56,26 @@ handleRequestMini = async (
   }
 }
 
-const checkPermissionUser = (params: UserRequest): boolean => {
-  return boolean
+const checkPermissionUser = (appId: String, params: UserRequest): boolean => {
+  if (appId == '001') {
+    return true
+  }
+  return false
 }
 
 const handleRequestUser = (
+  appId: String,
   params: UserRequest,
 ): UserResponse => {
-  return UserResponse
+  return getDataForMiniApp(appId)
+}
+
+const initResponse = (appId: String): InitResponse => {
+  if appId not exist
+     return Object.create({data: {}, isError: false, error: {}} as InitResponse)
+  else {
+    return Object.create({data: {}, isError: true, error: {}} as InitRespons)
+  }
 }
 
 const errorUserRequest = (errorText: string): UserResponse => {
@@ -67,7 +84,8 @@ const errorUserRequest = (errorText: string): UserResponse => {
 
 
 const dataSupper = {
-  callback: handleRequestMini,
+  appId: '001',
+  requestToSuperApp: handleRequestFromMiniApp,
 }
 
 <MiniApp dataSupper={dataSupper} ref={ref} />
@@ -86,7 +104,9 @@ const dataSupper = {
 const App = forwardRef(({params: SupperParams}, ref) => {
   ...
   useEffect(() => {
-    SupperSdk.init(params);
+    SupperSdk.init(params, InitResponse => {
+      ...
+    });
   }, [params]);
   return <MiniAppUser />;
 });
