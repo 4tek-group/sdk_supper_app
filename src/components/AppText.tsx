@@ -1,7 +1,14 @@
-import { StyleProp, StyleSheet, Text, TextProps, TextStyle } from 'react-native'
+import {
+  StyleProp,
+  StyleSheet,
+  Text,
+  TextProps,
+  TextStyle
+} from 'react-native'
 import React, { memo } from 'react'
-import {AppFonts, FontSizes} from 'src/theme/Fonts'
-import {Colors} from "./Colors";
+import {Colors} from "./Colors"
+import { AppFonts, FontSizes } from '../theme'
+
 export interface AppTextProps extends TextProps {
   children: React.ReactNode
   fontWeight?: keyof typeof AppFonts | string
