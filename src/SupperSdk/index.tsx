@@ -13,6 +13,9 @@ import {
   dismiss,
 } from './Navigation';
 import { hideLoading, showLoading } from './Screen';
+import { requestSetDataStorage, requestGetDataStorage, requestDeleteDataStorage } from './Storage'
+import { requestShowDialog } from './Dialog'
+import { requestShowToast } from './Toast'
 
 export default {
   requestUserInfo,
@@ -27,4 +30,9 @@ export default {
   dismiss,
   hideLoading,
   showLoading,
+  requestSetDataStorage,
+  requestGetDataStorage,
+  requestDeleteDataStorage,
+  requestShowDialog,
+  requestShowToast,
 };

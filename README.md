@@ -70,6 +70,59 @@ handleRequestFromMiniApp = async (
       }
       break
     }
+    case ActionID.setDataStorage: {
+      try {
+        AppStorage.set(params?.key, params?.data)
+        callback({ isError: false })
+        return
+      } catch (e) {}
+
+      callback({ isError: true })
+      break
+    }
+    case ActionID.getDataStorage: {
+      try {
+        let data = AppStorage.getString(params?.key)
+        callback({ data: data, isError: false })
+        return
+      } catch (e) {
+        callback({ isError: true, error: { error: e.toString() } })
+      }
+      break
+    }
+    case ActionID.deleteDataStorage: {
+      try {
+        AppStorage.delete(params?.key)
+        callback({ isError: false })
+        return
+      } catch (e) {
+        callback({ isError: true, error: { error: e.toString() } })
+      }
+      break
+    }
+    case ActionID.showToast: {
+      try {
+        showToast(params)
+        callback({ isError: false })
+        return
+      } catch (e) {
+        callback({ isError: true, error: { error: e.toString() } })
+      }
+      break
+    }
+    case ActionID.showDialog: {
+      try {
+        diaLogStore.showDiaLog({
+          title: '',
+          message: params,
+        })
+        callback({ isError: false })
+        return
+      } catch (e) {
+        callback({ isError: true, error: { error: e.toString() } })
+      }
+      break
+    }
     // Add more event here...
     default: {
       completion(errorUserRequest('orther error'))
@@ -188,6 +241,66 @@ import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/Base
 
 SupperSdk.requestPhotoPermission(
     UserRequest,
+    BaseResponse => {
+        ...
+    },
+);
+```
+#### Request write data to storage.
+
+```ts
+import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/BaseType'
+
+SupperSdk.requestSetDataStorage(
+    StorageRequest,
+    BaseResponse => {
+        ...
+    },
+);
+```
+#### Request read data from storage.
+
+```ts
+import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/BaseType'
+
+SupperSdk.requestGetDataStorage(
+    StorageRequest,
+    BaseResponse => {
+        ...
+    },
+);
+```
+#### Request delete data in storage.
+
+```ts
+import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/BaseType'
+
+SupperSdk.requestDeleteDataStorage(
+    StorageRequest,
+    BaseResponse => {
+        ...
+    },
+);
+```
+#### Request show dialog with message.
+
+```ts
+import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/BaseType'
+
+SupperSdk.requestShowDialog(
+    DialogRequest,
+    BaseResponse => {
+        ...
+    },
+);
+```
+#### Request show toast with type, title, message.
+
+```ts
+import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/BaseType'
+
+SupperSdk.requestShowToast(
+    ToastRequest,
     BaseResponse => {
         ...
     },
