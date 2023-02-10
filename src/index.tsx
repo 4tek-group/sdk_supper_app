@@ -1,9 +1,9 @@
 export { default as SupperSdk } from './SupperSdk';
 export * from './SupperSdk/Type';
-export * from './theme';
-export { default as AppText } from './components/AppText';
-export { Colors } from './components/Colors';
-export { Radius } from './components/Radius';
-export { default as Padding } from './components/Padding';
-export { default as AppButton } from './components/AppButton';
-export { default as AlertPopup } from './components/Popup';
+export * from './Theme';
+export { default as AppText } from './Components/AppText';
+export { Colors } from './Components/Colors';
+export { Radius } from './Components/Radius';
+export { default as Padding } from './Components/Padding';
+export { default as AppButton } from './Components/AppButton';
+export { default as AlertPopup } from './Components/Popup';

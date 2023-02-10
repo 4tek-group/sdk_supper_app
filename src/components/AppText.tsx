@@ -1,6 +1,6 @@
 import { StyleProp, StyleSheet, Text, TextProps, TextStyle } from 'react-native'
 import React, { memo } from 'react'
-import {AppFonts, FontSizes} from 'src/theme/Fonts'
+import {AppFonts, FontSizes} from '../Theme/Fonts'
 import {Colors} from "./Colors";
 export interface AppTextProps extends TextProps {
   children: React.ReactNode

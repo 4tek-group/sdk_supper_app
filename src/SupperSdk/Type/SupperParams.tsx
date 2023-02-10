@@ -1,3 +1,4 @@
 export type SupperParams = {
-  requestToSuperApp: (id: string, params: any, callback: Function) => {};
+  appId: String,
+  requestToSuperApp: (appId: String, actionID: string, params: any, callback: Function) => {};
 };
