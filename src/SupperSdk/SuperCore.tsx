@@ -1,7 +1,7 @@
 import type { SupperParams, BaseRequest, IntRequest } from './Type'
 import { ActionID } from './Type/ActionID'
 
-let supperData: SupperParams
+let supperData: SupperParams | undefined
 const init = (params: SupperParams, completion: Function) => {
   if (params && params.appId && params.requestToSuperApp !== null) {
     supperData = params
@@ -14,6 +14,10 @@ const init = (params: SupperParams, completion: Function) => {
   } else {
     completion(null)
   }
+}
+
+const destroy = () => {
+  supperData = undefined
 }
 
 const willRequestToSupperApp = (
