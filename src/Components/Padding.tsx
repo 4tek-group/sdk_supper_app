@@ -12,17 +12,17 @@ interface PaddingProps {
   children?: React.ReactNode
 }
 const Padding = ({
-                   bottom = 0,
-                   left = 0,
-                   right = 0,
-                   top = 0,
-                   padding = 0,
-                   horizontal = 0,
-                   vertical = 0,
-                   children,
-                   style,
-                   ...restProps
-                 }: PaddingProps) => {
+  bottom = 0,
+  left = 0,
+  right = 0,
+  top = 0,
+  padding = 0,
+  horizontal = 0,
+  vertical = 0,
+  children,
+  style,
+  ...restProps
+}: PaddingProps) => {
   return (
     <View
       {...restProps}

@@ -1,16 +1,8 @@
 export type PermissionType = {
-  None: 0;
-  Access: 1;
-  Deny: 2;
-  Other: 3;
-};
+  None: 0
+  Access: 1
+  Deny: 2
+  Other: 3
+}
 
-export type PermissionOS = 'android' | 'ios';
-
-export const DevicePermissionType = {
-  photo: 'photo',
-  camera: 'camera',
-  storage: 'storage',
-  location: 'location',
-  contacts: 'contacts',
-};
+export type PermissionOS = 'android' | 'ios'

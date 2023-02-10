@@ -6,7 +6,8 @@ import {
   StyleProp,
   StyleSheet,
   TextStyle,
-  TouchableOpacity, View,
+  TouchableOpacity,
+  View,
   ViewStyle,
 } from 'react-native'
 import AppText, { AppTextProps } from './AppText'
@@ -39,27 +40,27 @@ export interface AppButtonProps {
 }
 
 const AppButton = ({
-                     radius = 8,
-                     backgroundColor = Colors.primary,
-                     colors,
-                     disabled,
-                     disabledBackgroundColor = Colors.gray,
-                     disabledTextColor = Colors.white,
-                     icon,
-                     svgIcon,
-                     iconStyle,
-                     onPress,
-                     opacity = 0.8,
-                     text,
-                     textStyle,
-                     iconDirection = 'right',
-                     textColor = Colors.white,
-                     style,
-                     spaceBetween = 10,
-                     center = true,
-                     textProps: { style: extraTextStyle, ...restTextProps } = {},
-                     ...restProps
-                   }: AppButtonProps) => {
+  radius = 8,
+  backgroundColor = Colors.primary,
+  colors,
+  disabled,
+  disabledBackgroundColor = Colors.gray,
+  disabledTextColor = Colors.white,
+  icon,
+  svgIcon,
+  iconStyle,
+  onPress,
+  opacity = 0.8,
+  text,
+  textStyle,
+  iconDirection = 'right',
+  textColor = Colors.white,
+  style,
+  spaceBetween = 10,
+  center = true,
+  textProps: { style: extraTextStyle, ...restTextProps } = {},
+  ...restProps
+}: AppButtonProps) => {
   const styles = StyleSheet.create({
     baseBtn: {
       flexDirection: iconDirection === 'right' ? 'row' : 'row-reverse',
@@ -77,7 +78,7 @@ const AppButton = ({
     btnBg: {
       ...StyleSheet.absoluteFillObject,
       zIndex: -1,
-      backgroundColor: Colors.gray
+      backgroundColor: Colors.gray,
     },
     baseIc: {
       height: 24,
@@ -92,11 +93,7 @@ const AppButton = ({
       activeOpacity={opacity}
       onPress={onPress}
     >
-      {!!colors && (
-        <View
-          style={styles.btnBg}
-        />
-      )}
+      {!!colors && <View style={styles.btnBg} />}
       <AppText
         {...restTextProps}
         style={[styles.baseTxt, textStyle, extraTextStyle]}
