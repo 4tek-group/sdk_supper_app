@@ -22,8 +22,8 @@ const destroy = () => {
 
 const willRequestToSupperApp = (
   actionID: string,
-  params: BaseRequest,
-  completion: Function,
+  params: BaseRequest | null | undefined,
+  completion: Function
 ) => {
   if (supperData && supperData.appId) {
     supperData?.requestToSuperApp(
