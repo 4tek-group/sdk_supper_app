@@ -1,5 +1,5 @@
 import { willRequestToSupperApp } from '../SuperCore'
-import { UserRequest } from '../User/Type'
+import type { UserRequest } from '../User/Type'
 import { ActionID, BaseResponse } from '../Type'
 
 export function requestCameraPermission(
