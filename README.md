@@ -147,6 +147,10 @@ const App = forwardRef(({params: SupperParams}, ref) => {
     SupperSdk.init(params, InitResponse => {
       ...
     });
+
+    return () => {
+      SupperSdk.destroy()
+    };
   }, [params]);
   return <MiniAppUser />;
 });
