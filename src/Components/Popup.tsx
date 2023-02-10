@@ -1,75 +1,72 @@
-import AppButton from './AppButton';
-import React, { memo, useEffect } from 'react';
+import AppButton from './AppButton'
+import React, { memo, useEffect } from 'react'
 import {
   Image,
   ImageSourcePropType,
   Modal,
-  Pressable, StyleSheet, Text,
+  Pressable,
+  StyleSheet,
+  Text,
   TextStyle,
   TouchableOpacity,
-  View, Dimensions,
-} from 'react-native';
-import AppText from './AppText';
-import Padding from './Padding';
-import { Colors } from './Colors';
+  View,
+  Dimensions,
+} from 'react-native'
+import AppText from './AppText'
+import Padding from './Padding'
+import { Colors } from './Colors'
 
 interface AppDiaLogProps {
-  title?: string;
-  message?: string;
-  dialogIcon?: ImageSourcePropType;
-  titleColor?: string;
-  messageColor?: string;
-  messageStyle?: TextStyle;
-  customMessage?: React.ReactNode;
-  buttonText?: string;
-  buttonCustom?: React.ReactNode;
-  showTime?: number;
-  footer?: React.ReactNode;
-  hideCloseButton?: boolean;
-  backdropForClosing?: boolean;
-  onClose: () => void;
-  onPress: () => void;
+  title?: string
+  message?: string
+  dialogIcon?: ImageSourcePropType
+  titleColor?: string
+  messageColor?: string
+  messageStyle?: TextStyle
+  customMessage?: React.ReactNode
+  buttonText?: string
+  buttonCustom?: React.ReactNode
+  showTime?: number
+  footer?: React.ReactNode
+  hideCloseButton?: boolean
+  backdropForClosing?: boolean
+  onClose: () => void
+  onPress: () => void
 }
 
 const AppDiaLog = ({
-                     onClose,
-                     onPress,
-                     title,
-                     message,
-                     messageStyle,
-                     customMessage,
-                     dialogIcon,
-                     titleColor,
-                     buttonText,
-                     buttonCustom,
-                     showTime,
-                     footer,
-                     hideCloseButton = false,
-                     backdropForClosing,
-                   }: AppDiaLogProps) => {
-
+  onClose,
+  onPress,
+  title,
+  message,
+  messageStyle,
+  customMessage,
+  dialogIcon,
+  titleColor,
+  buttonText,
+  buttonCustom,
+  showTime,
+  footer,
+  hideCloseButton = false,
+  backdropForClosing,
+}: AppDiaLogProps) => {
   useEffect(() => {
     if (showTime) {
       const action = setTimeout(() => {
-        onClose();
-      }, showTime);
-      return () => clearTimeout(action);
+        onClose()
+      }, showTime)
+      return () => clearTimeout(action)
     }
-    return ()=> {};
-  }, []);
+    return () => {}
+  }, [])
   return (
-    <Modal
-      animationType='fade'
-      transparent
-      visible
-    >
+    <Modal animationType="fade" transparent visible>
       <View style={styles.rootContainer}>
         <Pressable
           disabled={!backdropForClosing}
           onPress={onClose}
           style={styles.blurView}
-        >
-        </Pressable>
+        />
         <View style={styles.container}>
           {!hideCloseButton && (
             <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
@@ -83,9 +80,7 @@ const AppDiaLog = ({
                 styles.titleTxt,
                 {
                   color: titleColor,
-                  marginTop: dialogIcon
-                    ? 20
-                    : -30,
+                  marginTop: dialogIcon ? 20 : -30,
                 },
               ]}
             >
@@ -93,12 +88,7 @@ const AppDiaLog = ({
             </AppText>
           )}
           {!!message && (
-            <AppText
-              style={[
-                styles.messageTxt,
-                messageStyle,
-              ]}
-            >
+            <AppText style={[styles.messageTxt, messageStyle]}>
               {message}
             </AppText>
           )}
@@ -123,9 +113,9 @@ const AppDiaLog = ({
         </View>
       </View>
     </Modal>
-  );
-};
-const widthScreen = Dimensions.get('window').width;
+  )
+}
+const widthScreen = Dimensions.get('window').width
 
 const styles = StyleSheet.create({
   dialogIcon: {
@@ -185,5 +175,5 @@ const styles = StyleSheet.create({
   blurView: {
     zIndex: -1,
   },
-});
-export default memo(AppDiaLog);
+})
+export default memo(AppDiaLog)

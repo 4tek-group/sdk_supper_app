@@ -20,7 +20,7 @@ Install package: yarn
 
 ---
 
-#### Handle request from mini app. Ex requestUserInfo
+#### Handle request from mini app.
 
 ```ts
 import {
@@ -28,15 +28,18 @@ import {
   UserRequest,
   UserResponse,
 } from 'react-native-super-app-sdk'
+import { BaseResponse } from './BaseType'
 
 handleRequestFromMiniApp = async (
   appId: string,
   actionId: string,
   params: any extends BaseRequest,
-  completion: (any extends BaseResponse) => {},
-) => {
+  completion: (any extends BaseResponse) => {
+},
+) =>
+{
   switch (actionId) {
-     case ActionID.initSDK: {
+    case ActionID.initSDK: {
       completion(initResponse(appId))
       break
     }
@@ -46,6 +49,24 @@ handleRequestFromMiniApp = async (
         completion(handleRequestUser(appId, params))
       } else {
         completion(errorUserRequest('user deny'))
+      }
+      break
+    }
+    case ActionID.requestCamera: {
+      const isAccess = checkPermissionUser(appId, params)
+      if (isAccess) {
+        completion(handleRequestCamera(appId, params))
+      } else {
+        completion(errorUserRequest('permission deny'))
+      }
+      break
+    }
+    case ActionID.requestPhoto: {
+      const isAccess = checkPermissionUser(appId, params)
+      if (isAccess) {
+        completion(handleRequestPhoto(appId, params))
+      } else {
+        completion(errorUserRequest('permission deny'))
       }
       break
     }
@@ -70,11 +91,27 @@ const handleRequestUser = (
   return getDataForMiniApp(appId)
 }
 
+const handleRequestCamera = (
+  appId: String,
+  params: UserRequest,
+): BaseResponse => {
+  return supperRequestCameraPermission()
+}
+
+const handleRequestPhoto = (
+  appId: String,
+  params: UserRequest,
+): BaseResponse => {
+  return supperRequestPhotoPermission()
+}
+
 const initResponse = (appId: String): InitResponse => {
-  if appId not exist
-     return Object.create({data: {}, isError: false, error: {}} as InitResponse)
-  else {
-    return Object.create({data: {}, isError: true, error: {}} as InitRespons)
+  if appId not
+  exist
+  return Object.create({ data: {}, isError: false, error: {} } as InitResponse)
+else
+  {
+    return Object.create({ data: {}, isError: true, error: {} } as InitRespons)
   }
 }
 
@@ -84,11 +121,14 @@ const errorUserRequest = (errorText: string): UserResponse => {
 
 
 const dataSupper = {
-  appId: '001',
-  requestToSuperApp: handleRequestFromMiniApp,
-}
+    appId: '001',
+    requestToSuperApp: handleRequestFromMiniApp,
+  }
 
-<MiniApp dataSupper={dataSupper} ref={ref} />
+  < MiniApp
+dataSupper = { dataSupper }
+ref = { ref }
+/>
 
 ```
 
@@ -125,5 +165,28 @@ SupperSdk.requestUserInfo(
     },
 );
 ```
+#### Request camera permission.
 
+```ts
+import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/BaseType'
+
+SupperSdk.requestCameraPermission(
+    UserRequest,
+    BaseResponse => {
+        ...
+    },
+);
+```
+#### Request photo permission.
+
+```ts
+import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/BaseType'
+
+SupperSdk.requestPhotoPermission(
+    UserRequest,
+    BaseResponse => {
+        ...
+    },
+);
+```
 ---

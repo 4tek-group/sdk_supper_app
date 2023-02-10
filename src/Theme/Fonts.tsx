@@ -12,7 +12,7 @@ export const FontSizes = {
   h3: 30,
   h2: 32,
   h1: 34,
-};
+}
 export const AppFonts = {
   900: 'Roboto-Black',
   800: 'Roboto-ExtraBold',
@@ -22,7 +22,7 @@ export const AppFonts = {
   400: 'Roboto-Regular',
   300: 'Roboto-Light',
   200: 'Roboto-ExtraLight',
-};
+}
 
 export const AppSubFonts = {
   700: 'Roboto-Bold',
@@ -31,4 +31,4 @@ export const AppSubFonts = {
   400: 'Roboto-Regular',
   300: 'Roboto-Light',
   200: 'Roboto-ExtraLight',
-};
+}

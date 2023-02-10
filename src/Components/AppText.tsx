@@ -1,7 +1,7 @@
 import { StyleProp, StyleSheet, Text, TextProps, TextStyle } from 'react-native'
 import React, { memo } from 'react'
-import {AppFonts, FontSizes} from '../Theme/Fonts'
-import {Colors} from "./Colors";
+import { AppFonts, FontSizes } from '../Theme'
+import { Colors } from './Colors'
 export interface AppTextProps extends TextProps {
   children: React.ReactNode
   fontWeight?: keyof typeof AppFonts | string
@@ -15,26 +15,26 @@ export interface AppTextProps extends TextProps {
 }
 
 const AppText = ({
-                   children,
-                   fontWeight = 400,
-                   fontSize = 'normal',
-                   color = Colors.black,
-                   lineHeightRatio,
-                   lineHeight,
-                   style,
-                   align = 'left',
-                   useDefaultFont = true, // update this line after linked fonts
-                   ...restProps
-                 }: AppTextProps) => {
+  children,
+  fontWeight = 400,
+  fontSize = 'normal',
+  color = Colors.black,
+  lineHeightRatio,
+  lineHeight,
+  style,
+  align = 'left',
+  useDefaultFont = true, // update this line after linked fonts
+  ...restProps
+}: AppTextProps) => {
   const size = typeof fontSize === 'string' ? FontSizes[fontSize] : fontSize
   const textStyles = {
     fontFamily: useDefaultFont
       ? undefined
       : typeof fontWeight === 'string'
-        ? fontWeight
-        : AppFonts[fontWeight],
+      ? fontWeight
+      : AppFonts[fontWeight],
     color,
-    fontSize: (size),
+    fontSize: size,
     ...(lineHeightRatio && {
       lineHeight: size * lineHeightRatio,
     }),
