@@ -11,4 +11,9 @@ export const ActionID = {
   dismiss: 'dismiss',
   hideLoading: 'hideLoading',
   showLoading: 'showLoading',
+  setDataStorage: 'setDataStorage',
+  getDataStorage: 'getDataStorage',
+  deleteDataStorage: 'deleteDataStorage',
+  showDialog: 'showDialog',
+  showToast: 'showToast',
 };
