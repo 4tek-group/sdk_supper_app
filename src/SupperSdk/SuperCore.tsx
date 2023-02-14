@@ -35,4 +35,4 @@ const willRequestToSupperApp = (
   }
 }
 
-export { init, willRequestToSupperApp }
+export { init, willRequestToSupperApp, destroy }
