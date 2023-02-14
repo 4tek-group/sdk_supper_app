@@ -10,5 +10,5 @@ export interface BaseError {
 }
 
 export interface BaseRequest {
-  data: any
+  data?: any
 }
