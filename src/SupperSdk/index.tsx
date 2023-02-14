@@ -3,7 +3,7 @@ import {
   requestPhotoPermission,
   requestCameraPermission,
 } from './Permission/Permission'
-import { init } from './SuperCore'
+import { init, destroy } from './SuperCore'
 import {
   goHome,
   goBack,
@@ -18,8 +18,9 @@ import { requestShowDialog } from './Dialog'
 import { requestShowToast } from './Toast'
 
 export default {
-  requestUserInfo,
   init,
+  destroy,
+  requestUserInfo,
   requestPhotoPermission,
   requestCameraPermission,
   goHome,
