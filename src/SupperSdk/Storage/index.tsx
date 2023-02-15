@@ -16,11 +16,18 @@ export function requestGetDataStorage(
 willRequestToSupperApp(ActionID.getDataStorage, params, completion)
 }
 
-
-export function requestDeleteDataStorage(
+export function requestDeleteStorageKey(
   params: StorageRequest,
   completion: (onResponse: StorageResponse) => {},
 ) {
-willRequestToSupperApp(ActionID.deleteDataStorage, params, completion)
+willRequestToSupperApp(ActionID.deleteStorageKey, params, completion)
+}
+
+
+export function requestDeleteAppStorage(
+  params: StorageRequest,
+  completion: (onResponse: StorageResponse) => {},
+) {
+willRequestToSupperApp(ActionID.deleteAppStorage, params, completion)
 }
 
