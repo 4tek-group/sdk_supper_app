@@ -13,7 +13,8 @@ export const ActionID = {
   showLoading: 'showLoading',
   setDataStorage: 'setDataStorage',
   getDataStorage: 'getDataStorage',
-  deleteDataStorage: 'deleteDataStorage',
+  deleteStorageKey: 'deleteStorageKey',
+  deleteAppStorage: 'deleteAppStorage',
   showDialog: 'showDialog',
   showToast: 'showToast',
 };

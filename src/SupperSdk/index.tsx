@@ -13,7 +13,7 @@ import {
   dismiss,
 } from './Navigation';
 import { hideLoading, showLoading } from './Screen';
-import { requestSetDataStorage, requestGetDataStorage, requestDeleteDataStorage } from './Storage'
+import { requestSetDataStorage, requestGetDataStorage, requestDeleteStorageKey, requestDeleteAppStorage } from './Storage'
 import { requestShowDialog } from './Dialog'
 import { requestShowToast } from './Toast'
 
@@ -33,7 +33,8 @@ export default {
   showLoading,
   requestSetDataStorage,
   requestGetDataStorage,
-  requestDeleteDataStorage,
+  requestDeleteStorageKey,
+  requestDeleteAppStorage,
   requestShowDialog,
   requestShowToast,
 };
