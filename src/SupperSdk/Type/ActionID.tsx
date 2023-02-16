@@ -17,4 +17,6 @@ export const ActionID = {
   deleteAppStorage: 'deleteAppStorage',
   showDialog: 'showDialog',
   showToast: 'showToast',
-};
+  requestDeposit: 'requestDeposit',
+  requestWithDraw: 'requestWithDraw'
+}
