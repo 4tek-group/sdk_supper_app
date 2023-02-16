@@ -5,7 +5,7 @@ export interface BaseResponse {
 }
 
 export interface BaseError {
-  error: string
+  message: string
   code: number
 }
 
