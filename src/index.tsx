@@ -1,4 +1,11 @@
 export { default as SupperSdk } from './SupperSdk'
 export * from './SupperSdk/Type'
 export * from './Theme'
-export * from './Components'
+export {
+  AppText,
+  AppButton,
+  AppWebView,
+  Colors,
+  Radius,
+  Padding,
+} from './Components'
