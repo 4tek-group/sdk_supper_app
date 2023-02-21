@@ -19,7 +19,7 @@ const AppWebView = ({
   const [updatedCookie, setUpdatedCookie] = useState(!enableCookies)
   useEffect(() => {
     if (enableCookies) {
-      const site = cookieDomain || source.uri
+      const site = cookieDomain || source['uri']
       CookieManager.set(site, {
         name: `${site}_cookie`,
         ...cookie,
