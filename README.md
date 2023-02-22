@@ -215,31 +215,52 @@ const App = forwardRef(({params: SupperParams}, ref) => {
 ```ts
 import {UserRequest, UserResponse, UserError, SupperSdk} from 'react-native-super-app-sdk';
 
-SupperSdk.requestUserInfo(
-    UserRequest,
+SupperSdk.requestUserInfor(
+    {
+      permission: [
+        {
+          role: 'name',
+          required: true,
+        }
+      ]
+    },
     UserResponse => {
         ...
     },
-);
+)
+
+SupperSdk.getUserInfor(
+    {
+      permission: [
+        {
+          role: 'name',
+          required: true,
+        }
+      ]
+    },
+    UserResponse => {
+        ...
+    },
+)
 ```
-#### Request camera permission.
+#### Request camera.
 
 ```ts
-import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/BaseType'
+import { BaseResponse } from 'react-native-super-app-sdk'
 
-SupperSdk.requestCameraPermission(
+SupperSdk.getCamera(
     UserRequest,
     BaseResponse => {
         ...
     },
 );
 ```
-#### Request photo permission.
+#### Request photo.
 
 ```ts
-import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/BaseType'
+import { BaseResponse } from 'react-native-super-app-sdk'
 
-SupperSdk.requestPhotoPermission(
+SupperSdk.getPhoto(
     UserRequest,
     BaseResponse => {
         ...
@@ -249,7 +270,7 @@ SupperSdk.requestPhotoPermission(
 #### Request write data to storage.
 
 ```ts
-import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/BaseType'
+import { BaseResponse } from 'react-native-super-app-sdk'
 
 SupperSdk.requestSetDataStorage(
     StorageRequest,
@@ -261,7 +282,7 @@ SupperSdk.requestSetDataStorage(
 #### Request read data from storage.
 
 ```ts
-import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/BaseType'
+import { BaseResponse } from 'react-native-super-app-sdk'
 
 SupperSdk.requestGetDataStorage(
     StorageRequest,
@@ -273,7 +294,7 @@ SupperSdk.requestGetDataStorage(
 #### Request delete data in storage.
 
 ```ts
-import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/BaseType'
+import { BaseResponse } from 'react-native-super-app-sdk'
 
 SupperSdk.requestDeleteDataStorage(
     StorageRequest,
@@ -285,7 +306,7 @@ SupperSdk.requestDeleteDataStorage(
 #### Request show dialog with message.
 
 ```ts
-import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/BaseType'
+import { BaseResponse } from 'react-native-super-app-sdk'
 
 SupperSdk.requestShowDialog(
     DialogRequest,
@@ -297,7 +318,7 @@ SupperSdk.requestShowDialog(
 #### Request show toast with type, title, message.
 
 ```ts
-import { BaseResponse } from 'react-native-super-app-sdk/src/SupperSdk/Type/BaseType'
+import { BaseResponse } from 'react-native-super-app-sdk'
 
 SupperSdk.requestShowToast(
     ToastRequest,
@@ -305,5 +326,25 @@ SupperSdk.requestShowToast(
         ...
     },
 );
+```
+
+#### Request permission and check permission.
+
+```ts
+import { BaseResponse } from 'react-native-super-app-sdk'
+
+SupperSdk.requestPermission(
+    type: 'camera',
+    BaseResponse => {
+        ...
+    },
+)
+
+SupperSdk.checkPermission(
+    type: 'camera',
+    BaseResponse => {
+        ...
+    },
+)
 ```
 ---

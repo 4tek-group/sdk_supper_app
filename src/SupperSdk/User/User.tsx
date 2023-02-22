@@ -1,10 +1,19 @@
-import type { UserRequest, UserResponse } from './Type'
+import { UserParams, UserRequest, UserResponse } from './Type'
 import { willRequestToSupperApp } from '../SuperCore'
 import { ActionID } from '../Type/ActionID'
 
-export function requestUserInfo(
-  params: UserRequest,
+export function requestUserInfor(
+  params: UserParams,
   completion: (userResponse: UserResponse) => {},
 ) {
-  willRequestToSupperApp(ActionID.getUserInfo, params, completion)
+  // parser to Base params
+  willRequestToSupperApp(ActionID.getUserInfo, { data: params } as UserRequest, completion)
+}
+
+export function getUserInfor(
+  params: UserParams,
+  completion: (userResponse: UserResponse) => {},
+) {
+  // parser to Base params
+  willRequestToSupperApp(ActionID.getUserInfo, { data: params } as UserRequest, completion)
 }

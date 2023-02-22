@@ -1,6 +1,8 @@
 export const ActionID = {
   initSDK: 'initSDK',
   getUserInfo: 'getUserInfo',
+  requestPermission: 'requestPermission',
+  checkPermission: 'checkPermission',
   requestCamera: 'requestCamera',
   requestPhoto: 'requestPhoto',
   goHome: 'goHome',

@@ -1,5 +1,16 @@
 import type { BaseRequest, BaseResponse } from '../Type/BaseType'
 
-export interface UserResponse extends BaseResponse {}
+export type UserRole = 'name' | 'address' | 'phone' | 'age'
 
-export interface UserRequest extends BaseRequest {}
+export interface UserParams {
+    permissions: Array<{
+        role: UserRole,
+        required?: boolean
+    }>
+}
+
+export interface UserResponse extends BaseResponse { }
+
+export interface UserRequest extends BaseRequest {
+    data: UserParams
+}
