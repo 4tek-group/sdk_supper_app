@@ -1,17 +1,16 @@
 import { willRequestToSupperApp } from '../SuperCore'
-import type { UserRequest } from '../User/Type'
-import { ActionID, BaseResponse } from '../Type'
+import { ActionID, PermissionType, PermissionResponse, DevicesRequest } from '../Type'
 
-export function requestCameraPermission(
-  params: UserRequest,
-  completion: (permissionResponse: BaseResponse) => {},
+export function requestPermission(
+  type: PermissionType,
+  completion: (permissionResponse: PermissionResponse) => {},
 ) {
-  willRequestToSupperApp(ActionID.requestCamera, params, completion)
+  willRequestToSupperApp(ActionID.requestPermission, { data: type, permission: type } as DevicesRequest, completion)
 }
 
-export function requestPhotoPermission(
-  params: UserRequest,
-  completion: (permissionResponse: BaseResponse) => {},
+export function checkPermission(
+  type: PermissionType,
+  completion: (permissionResponse: PermissionResponse) => {},
 ) {
-  willRequestToSupperApp(ActionID.requestPhoto, params, completion)
+  willRequestToSupperApp(ActionID.checkPermission, { data: type, permission: type } as DevicesRequest, completion)
 }

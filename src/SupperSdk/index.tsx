@@ -1,8 +1,8 @@
-import { requestUserInfo } from './User/User'
+import { requestUserInfor, getUserInfor } from './User/User'
 import {
-  requestPhotoPermission,
-  requestCameraPermission,
-} from './Permission/Permission'
+  requestPhoto,
+  requestCamera,
+} from './Devices/Devices'
 import { init, destroy } from './SuperCore'
 import {
   goHome,
@@ -22,13 +22,15 @@ import {
 import { requestShowDialog } from './Dialog'
 import { requestShowToast } from './Toast'
 import { requestDeposit, requestWithdraw } from './Payment'
+import { requestPermission, checkPermission } from './Permission/Permission'
 
 export default {
   init,
   destroy,
-  requestUserInfo,
-  requestPhotoPermission,
-  requestCameraPermission,
+  requestUserInfor,
+  getUserInfor,
+  requestPhoto,
+  requestCamera,
   goHome,
   goBack,
   openUrl,
@@ -44,5 +46,7 @@ export default {
   requestShowDialog,
   requestShowToast,
   requestDeposit,
-  requestWithdraw
+  requestWithdraw,
+  requestPermission,
+  checkPermission
 }
