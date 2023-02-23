@@ -1,9 +1,7 @@
 import { willRequestToSupperApp } from '../SuperCore';
-import { ActionID } from 'react-native-super-app-sdk';
-import type {BaseRequest, BaseResponse} from "../Type";
+import { BaseRequest, BaseResponse, ActionID } from "../Type";
 
 function goHome(params: BaseRequest, completion: (baseResponse: BaseResponse) => {}) {
-  console.log(params,completion)
   willRequestToSupperApp(ActionID.goHome, params, completion);
 }
 

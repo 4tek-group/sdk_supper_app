@@ -1,6 +1,5 @@
 import { willRequestToSupperApp } from '../SuperCore';
-import { ActionID } from 'react-native-super-app-sdk';
-import type {BaseRequest, BaseResponse} from "../Type";
+import { BaseRequest, BaseResponse, ActionID } from "../Type";
 
 function showLoading(params: BaseRequest, completion: (baseResponse: BaseResponse) => {}) {
   willRequestToSupperApp(ActionID.showLoading, params, completion);
