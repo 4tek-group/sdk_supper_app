@@ -1,7 +1,7 @@
 import { requestUserInfor, getUserInfor } from './User/User'
 import {
-  requestPhoto,
-  requestCamera,
+  getCamera,
+  getPhoto,
 } from './Devices/Devices'
 import { init, destroy } from './SuperCore'
 import {
@@ -29,8 +29,8 @@ export default {
   destroy,
   requestUserInfor,
   getUserInfor,
-  requestPhoto,
-  requestCamera,
+  getCamera,
+  getPhoto,
   goHome,
   goBack,
   openUrl,
