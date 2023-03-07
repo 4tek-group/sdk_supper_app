@@ -17,6 +17,12 @@ const init = (params: SupperParams, completion: Function) => {
 }
 
 const destroy = () => {
+  supperData?.requestToSuperApp(
+    supperData.appId,
+    ActionID.destroySDK,
+    null,
+    () => {},
+  )
   supperData = undefined
 }
 
