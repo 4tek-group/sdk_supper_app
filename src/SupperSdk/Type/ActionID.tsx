@@ -1,5 +1,6 @@
 export const ActionID = {
   initSDK: 'initSDK',
+  destroySDK: 'destroySDK',
   getUserInfo: 'getUserInfo',
   requestPermission: 'requestPermission',
   checkPermission: 'checkPermission',
